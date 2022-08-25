@@ -23,9 +23,10 @@ class Test_Script(Base_script.BasePage):
         self.message_logging(driver_title)
 
     def test_login(self):
-        user_email = test_data.Test_Data.USER_EMAIL
-        user_password = test_data.Test_Data.USER_PASSWORD
-        login_driver = Login_page.login_page_locators(self.driver, user_email, user_password)
+        # user_email = test_data.Test_Data.USER_EMAIL
+        # user_password = test_data.Test_Data.USER_PASSWORD
+        # login_driver = Login_page.login_page_locators(self.driver, user_email, user_password)
+        login_driver = Login_page.login_page_locators(self.driver, self.user_params)
         login_driver.username()
         login_driver.password()
         login_driver.submit_button()

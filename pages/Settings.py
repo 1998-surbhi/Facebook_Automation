@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class Setting_page_locators:
+    #Locators
     SETTING_PRIVACY = (By.XPATH, "//span[text()='Settings & privacy']")
     SETTINGS = (By.XPATH, "//span[text()='Settings']")
     USER_EMAIL_ID = (By.XPATH, "//li[@data-testid='settings_section_email']//strong[contains(text(),'smilysurbhi@gmail.com')]")  #strong[text()='smilysurbhi@gmail.com'][@xpath="1"]
@@ -14,40 +15,40 @@ class Setting_page_locators:
     def __init__(self, driver):
         self.driver = driver
     
-    """Click on USER SETTING PRIVACY"""
+    #Click on USER SETTING PRIVACY
     def user_settings_privacy(self):
         return self.driver.find_element(*Setting_page_locators.SETTING_PRIVACY).click()
 
-    """"Click on SETTING"""
+    #Click on SETTING
     def user_setting(self):
         return self.driver.find_element(*Setting_page_locators.SETTINGS).click()
     
-    """"Switch to frame and fetch text from locator"""
+    #Switch to frame and fetch text from locator
     def user_email(self):
         self.driver.switch_to.frame(self.driver.find_elements(By.TAG_NAME, "iframe")[0])   
         return self.driver.find_element(*Setting_page_locators.USER_EMAIL_ID).text
-    """"Close frame"""
+    #Close frame
     def close_iframe(self):
         self.driver.switch_to.default_content()
     
-    """"Click on block"""
+    #Click on block
     def user_block(self):
         return self.driver.find_element(*Setting_page_locators.USER_BLOCK).click()
     
-    """"Click on user block edit"""
+    #Click on user block edit
     def user_block_edit(self):
         return self.driver.find_element(*Setting_page_locators.USER_BLOCK_EDIT).click()
     
-    """"Click on block list"""
+    #Click on block list
     def user_block_list(self):
         return self.driver.find_element(*Setting_page_locators.USER_BLOCK_LIST).click()
     
-    """"Count no. of blocked user from list"""
+    #Count no. of blocked user from list
     def user_block_list_count(self):
         count = self.driver.find_elements(*Setting_page_locators.USER_BLOCK_LIST_COUNT)
         return len(count)
     
-    """"Close block window"""
+    #Close block window
     def user_block_close(self):
         return self.driver.find_element(*Setting_page_locators.USER_BLOCK_CLOSE).click()
     

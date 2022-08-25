@@ -6,12 +6,12 @@ def pytest_addoption(parser):
     parser.addoption(
         "--browser_name", action="store", default="chrome"
     )
-    # parser.addoption(
-    #     "--user_email", action="store", default="smilysurbhi@gmail.com"       
-    # )
-    # parser.addoption(
-    #     "--password", action="store", default="80bandana90"       
-    # )
+    parser.addoption(
+        "--user_email", action="store", default="*********"
+    )
+    parser.addoption(
+        "--password", action="store", default="********"
+    )
     parser.addoption(
         "--driver_path", action="store", default="/home/cbnits/Downloads/chromedriver"       
     )
@@ -33,14 +33,13 @@ def driver_setup(request):
     yield
     driver.quit()
 
-# @pytest.fixture(scope="class")
-# def passing_username_password(request):
-#     user_email = request.config.getoption("user_email")
-#     password = request.config.getoption("password")
-#     if user_email or password :
-#         request.cls.user_name = user_email
-#         request.cls.password = password
-#     yield
+@pytest.fixture(scope="class")
+def passing_username_password(request):
+    user_params = {"user_email" : request.config.getoption("user_email"),
+                  "user_password" : request.config.getoption("password")}
+    if user_params :
+        request.cls.user_params= user_params
+    yield
 
 
     

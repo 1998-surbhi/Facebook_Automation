@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-@pytest.mark.usefixtures("driver_setup")
+@pytest.mark.usefixtures("driver_setup", "passing_username_password")
 class BasePage:
 
     def wait_clickable(self, path):
@@ -18,7 +18,7 @@ class BasePage:
     def message_logging(self, message):
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
-        filehandler = logging.FileHandler("LOG/logfile.log")
+        filehandler = logging.FileHandler("/home/cbnits/Documents/Facebook_Assignment/Log/logfile.log")
         logger.addHandler(filehandler)
         formatter = logging.Formatter("%(asctime)s : %(levelname)s : %(name)s : %(message)s")
         filehandler.setFormatter(formatter)
