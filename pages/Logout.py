@@ -8,12 +8,16 @@ class logout_page_locators:
 
     def __init__(self, driver):
         self.driver = driver
-    
-    #Click on user profile
+
     def user_logout_profile(self):
+        """"
+        Click on user profile
+        """
         return self.driver.find_element(*logout_page_locators.USER_BACK).click()
 
-    #Click on LOGOUT button
     def user_logout(self):
+        """"
+        Click on LOGOUT button
+        """
         return self.driver.find_element(*logout_page_locators.USER_LOGOUT).click()
 

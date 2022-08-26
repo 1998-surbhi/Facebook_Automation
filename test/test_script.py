@@ -22,7 +22,7 @@ class Test_Script(Base_script.BasePage):
         assert driver_title == test_data.Test_Data.PAGE_TITLE
         self.message_logging(driver_title)
 
-    def test_login(self):
+    def test_login_page(self):
         # user_email = test_data.Test_Data.USER_EMAIL
         # user_password = test_data.Test_Data.USER_PASSWORD
         # login_driver = Login_page.login_page_locators(self.driver, user_email, user_password)
@@ -32,17 +32,17 @@ class Test_Script(Base_script.BasePage):
         login_driver.submit_button()
         self.message_logging("Login Successfully")
     
-    def test_Home_page_user_name(self):
+    def test_Home_page(self):
         home_page_driver = Home_page.Home_page_locators(self.driver)
-        user = home_page_driver.user_name()
-        print(user)
+        # user = home_page_driver.user_name()
+        # print(user)
         # assert user == "Surbhi Agrahari"
-        assert user == test_data.Test_Data.USER_NAME
-        self.message_logging("User name validate " + user)
+        # assert user == test_data.Test_Data.USER_NAME
+        # self.message_logging("User name validate " + user)
         self.wait_clickable(Home_page.Home_page_locators.USER_PROFILE)
         home_page_driver.user_profile()
     
-    def test_Setings_emai_id(self):
+    def test_Setings(self):
         setting_driver = Settings.Setting_page_locators(self.driver)
         self.wait_clickable(Settings.Setting_page_locators.SETTING_PRIVACY)
         setting_driver.user_settings_privacy()
@@ -50,12 +50,21 @@ class Test_Script(Base_script.BasePage):
         setting_driver.user_setting()
         
         time.sleep(5)
-        user = setting_driver.user_email()
-        setting_driver.close_iframe()
-        print(user)
+        user_email = setting_driver.user_email()
+        # setting_driver.close_iframe()
+        print(user_email)
         # assert user == "smilysurbhi@gmail.com"
-        assert user == test_data.Test_Data.USER_EMAIL
-        self.message_logging("Email validate " + user)
+        assert user_email == test_data.Test_Data.USER_EMAIL
+        self.message_logging("Email validate " + user_email)
+
+        user_name = setting_driver.user_name()
+        setting_driver.close_iframe()
+        setting_driver.close_iframe()
+        print(user_name)
+        assert user_name == test_data.Test_Data.USER_NAME
+        self.message_logging("User name validate " + user_name)
+        print("Assertion successfully Done")
+        self.message_logging("Assertion successfully Done")
     
         self.wait_clickable(Settings.Setting_page_locators.USER_BLOCK)
         setting_driver.user_block()

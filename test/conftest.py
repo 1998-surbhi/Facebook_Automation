@@ -7,10 +7,10 @@ def pytest_addoption(parser):
         "--browser_name", action="store", default="chrome"
     )
     parser.addoption(
-        "--user_email", action="store", default="*********"
+        "--user_email", action="store", default="********"
     )
     parser.addoption(
-        "--password", action="store", default="********"
+        "--password", action="store", default="*********"
     )
     parser.addoption(
         "--driver_path", action="store", default="/home/cbnits/Downloads/chromedriver"       

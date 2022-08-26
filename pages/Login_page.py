@@ -13,18 +13,23 @@ class login_page_locators:
         # self.user_password = user_password
         self.user_params = user_params
 
-    
-    #Enter EMAIL
+
     def username(self):
+        """"
+        Enter Your EMAIL
+        """
         # return self.driver.find_element(*login_page_locators.EMAIL_ID).send_keys("smilysurbhi@gmail.com")
         return self.driver.find_element(*login_page_locators.EMAIL_ID).send_keys(self.user_params["user_email"])
 
-
-    #Enter PASSWORD
     def password(self):
+        """"
+        Enter Your PASSWORD
+        """
         # return self.driver.find_element(*login_page_locators.PASSWORD).send_keys("80bandana90")
         return self.driver.find_element(*login_page_locators.PASSWORD).send_keys(self.user_params["user_password"])
 
-    #Click SUBMIT
     def submit_button(self):
+        """"
+        Click SUBMIT
+        """
         return self.driver.find_element(*login_page_locators.SUBMIT).click()

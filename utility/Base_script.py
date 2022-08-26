@@ -16,6 +16,9 @@ class BasePage:
             self.message_logging(e)
     
     def message_logging(self, message):
+        """"
+        Create Log File
+        """
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
         filehandler = logging.FileHandler("/home/cbnits/Documents/Facebook_Assignment/Log/logfile.log")
