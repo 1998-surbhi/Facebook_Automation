@@ -18,14 +18,14 @@ class login_page_locators:
         """"
         Enter Your EMAIL
         """
-        # return self.driver.find_element(*login_page_locators.EMAIL_ID).send_keys("smilysurbhi@gmail.com")
+        # return self.driver.find_element(*login_page_locators.EMAIL_ID).send_keys("********")
         return self.driver.find_element(*login_page_locators.EMAIL_ID).send_keys(self.user_params["user_email"])
 
     def password(self):
         """"
         Enter Your PASSWORD
         """
-        # return self.driver.find_element(*login_page_locators.PASSWORD).send_keys("80bandana90")
+        # return self.driver.find_element(*login_page_locators.PASSWORD).send_keys("********")
         return self.driver.find_element(*login_page_locators.PASSWORD).send_keys(self.user_params["user_password"])
 
     def submit_button(self):
